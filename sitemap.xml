@@ -2,55 +2,32 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://blog.panda74.fun/tags/first/</loc>
+    <loc>https://blog.panda74.fun/posts/</loc>
     <lastmod>2023-05-02T23:55:46+08:00</lastmod>
   </url><url>
-    <loc>https://blog.panda74.fun/myfirstpost/</loc>
+    <loc>https://blog.panda74.fun/tags/life/</loc>
     <lastmod>2023-05-02T23:55:46+08:00</lastmod>
   </url><url>
     <loc>https://blog.panda74.fun/tags/</loc>
     <lastmod>2023-05-02T23:55:46+08:00</lastmod>
   </url><url>
+    <loc>https://blog.panda74.fun/posts/life/51gossip/</loc>
+    <lastmod>2023-05-02T23:55:46+08:00</lastmod>
+  </url><url>
     <loc>https://blog.panda74.fun/</loc>
     <lastmod>2023-05-02T23:55:46+08:00</lastmod>
   </url><url>
-    <loc>https://blog.panda74.fun/posts/tech/</loc>
-    <lastmod>2023-02-21T12:20:21+08:00</lastmod>
-  </url><url>
-    <loc>https://blog.panda74.fun/posts/</loc>
-    <lastmod>2023-02-21T12:20:21+08:00</lastmod>
-  </url><url>
-    <loc>https://blog.panda74.fun/posts/tech/tech1/</loc>
-    <lastmod>2023-02-21T12:20:21+08:00</lastmod>
-  </url><url>
-    <loc>https://blog.panda74.fun/tags/life/</loc>
-    <lastmod>2022-05-05T00:18:15+08:00</lastmod>
-  </url><url>
-    <loc>https://blog.panda74.fun/posts/life/life/</loc>
-    <lastmod>2022-05-05T00:18:15+08:00</lastmod>
-  </url><url>
     <loc>https://blog.panda74.fun/posts/life/</loc>
-    <lastmod>2022-05-05T00:18:15+08:00</lastmod>
-  </url><url>
-    <loc>https://blog.panda74.fun/posts/read/</loc>
-    <lastmod>2022-05-05T00:18:06+08:00</lastmod>
-  </url><url>
-    <loc>https://blog.panda74.fun/tags/read/</loc>
-    <lastmod>2022-05-05T00:18:06+08:00</lastmod>
-  </url><url>
-    <loc>https://blog.panda74.fun/posts/read/read/</loc>
-    <lastmod>2022-05-05T00:18:06+08:00</lastmod>
-  </url><url>
-    <loc>https://blog.panda74.fun/tags/tech/</loc>
-    <lastmod>2022-05-05T00:17:58+08:00</lastmod>
-  </url><url>
-    <loc>https://blog.panda74.fun/posts/tech/tech/</loc>
-    <lastmod>2022-05-05T00:17:58+08:00</lastmod>
+    <lastmod>2023-05-02T23:55:46+08:00</lastmod>
   </url><url>
     <loc>https://blog.panda74.fun/archives/</loc>
   </url><url>
-    <loc>https://blog.panda74.fun/search/</loc>
+    <loc>https://blog.panda74.fun/posts/tech/</loc>
+  </url><url>
+    <loc>https://blog.panda74.fun/posts/read/</loc>
   </url><url>
     <loc>https://blog.panda74.fun/categories/</loc>
+  </url><url>
+    <loc>https://blog.panda74.fun/search/</loc>
   </url>
 </urlset>
