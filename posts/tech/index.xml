@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>👨🏻‍💻 技术 on 麦田Rebel&#39;s Blog</title>
+    <link>https://blog.panda74.fun/posts/tech/</link>
+    <description>Recent content in 👨🏻‍💻 技术 on 麦田Rebel&#39;s Blog</description>
+    <image>
+      <title>麦田Rebel&#39;s Blog</title>
+      <url>https://blog.panda74.fun/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://blog.panda74.fun/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Tue, 21 Feb 2023 12:20:21 +0800</lastBuildDate><atom:link href="https://blog.panda74.fun/posts/tech/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Tech1</title>
+      <link>https://blog.panda74.fun/posts/tech/tech1/</link>
+      <pubDate>Tue, 21 Feb 2023 12:20:21 +0800</pubDate>
+      
+      <guid>https://blog.panda74.fun/posts/tech/tech1/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tech</title>
+      <link>https://blog.panda74.fun/posts/tech/tech/</link>
+      <pubDate>Thu, 05 May 2022 00:17:58 +0800</pubDate>
+      
+      <guid>https://blog.panda74.fun/posts/tech/tech/</guid>
+      <description>科技代码</description>
+    </item>
+    
+  </channel>
+</rss>
