@@ -2,10 +2,10 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://blog.panda74.fun/posts/</loc>
+    <loc>https://blog.panda74.fun/tags/life/</loc>
     <lastmod>2023-05-02T23:55:46+08:00</lastmod>
   </url><url>
-    <loc>https://blog.panda74.fun/tags/life/</loc>
+    <loc>https://blog.panda74.fun/posts/</loc>
     <lastmod>2023-05-02T23:55:46+08:00</lastmod>
   </url><url>
     <loc>https://blog.panda74.fun/tags/</loc>
@@ -24,12 +24,12 @@
   </url><url>
     <loc>https://blog.panda74.fun/posts/read/</loc>
   </url><url>
+    <loc>https://blog.panda74.fun/archives/</loc>
+  </url><url>
     <loc>https://blog.panda74.fun/categories/</loc>
   </url><url>
     <loc>https://blog.panda74.fun/search/</loc>
   </url><url>
     <loc>https://blog.panda74.fun/series/</loc>
-  </url><url>
-    <loc>https://blog.panda74.fun/archives/</loc>
   </url>
 </urlset>
