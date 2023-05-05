@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>麦田Rebel&#39;s Blog</title>
-    <link>https://blog.panda74.fun/</link>
-    <description>Recent content on 麦田Rebel&#39;s Blog</description>
+    <title>软路由 on 麦田Rebel&#39;s Blog</title>
+    <link>https://blog.panda74.fun/tags/%E8%BD%AF%E8%B7%AF%E7%94%B1/</link>
+    <description>Recent content in 软路由 on 麦田Rebel&#39;s Blog</description>
     <image>
       <title>麦田Rebel&#39;s Blog</title>
       <url>https://blog.panda74.fun/img/avatars.png</url>
@@ -11,7 +11,7 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 05 May 2023 23:09:49 +0800</lastBuildDate><atom:link href="https://blog.panda74.fun/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 05 May 2023 23:09:49 +0800</lastBuildDate><atom:link href="https://blog.panda74.fun/tags/%E8%BD%AF%E8%B7%AF%E7%94%B1/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Orange Pi刷入OpenWrt做软路由</title>
       <link>https://blog.panda74.fun/posts/tech/softroute/</link>
@@ -20,17 +20,6 @@
       <guid>https://blog.panda74.fun/posts/tech/softroute/</guid>
       <description>前言 一直有软路由的需求，开始想过原路由直接刷入OpenWrt当软路由，但手里这台红米AX3000要破解SSH权限还没有合适的固件。索性淘了个</description>
     </item>
-    
-    <item>
-      <title>五一杂谈</title>
-      <link>https://blog.panda74.fun/posts/life/51gossip/</link>
-      <pubDate>Tue, 02 May 2023 23:55:46 +0800</pubDate>
-      
-      <guid>https://blog.panda74.fun/posts/life/51gossip/</guid>
-      <description>假期回家后的一些思绪.</description>
-    </item>
-    
-    
     
   </channel>
 </rss>
