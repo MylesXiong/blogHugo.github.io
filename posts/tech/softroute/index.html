@@ -5,9 +5,9 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>Orange Pi刷入OpenWrt做软路由 | 麦田Rebel&#39;s Blog</title>
+<title>OpenWrt软路由入门 | 麦田Rebel&#39;s Blog</title>
 <meta name="keywords" content="">
-<meta name="description" content="前言 一直有软路由的需求，开始想过原路由直接刷入OpenWrt当软路由，但手里这台红米AX3000要破解SSH权限还没有合适的固件。索性淘了个">
+<meta name="description" content="Orange Pi R1 Plus刷入OpenWrt做软路由">
 <meta name="author" content="Myles">
 <link rel="canonical" href="https://blog.panda74.fun/posts/tech/softroute/">
 <meta name="google-site-verification" content="XYZabc">
@@ -57,8 +57,8 @@
         }
 
     </style>
-</noscript><meta property="og:title" content="Orange Pi刷入OpenWrt做软路由" />
-<meta property="og:description" content="前言 一直有软路由的需求，开始想过原路由直接刷入OpenWrt当软路由，但手里这台红米AX3000要破解SSH权限还没有合适的固件。索性淘了个" />
+</noscript><meta property="og:title" content="OpenWrt软路由入门" />
+<meta property="og:description" content="Orange Pi R1 Plus刷入OpenWrt做软路由" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://blog.panda74.fun/posts/tech/softroute/" /><meta property="og:image" content="https://blog.panda74.fun/img/avatars.png"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2023-05-05T23:09:49+08:00" />
@@ -67,8 +67,8 @@
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://blog.panda74.fun/img/avatars.png"/>
 
-<meta name="twitter:title" content="Orange Pi刷入OpenWrt做软路由"/>
-<meta name="twitter:description" content="前言 一直有软路由的需求，开始想过原路由直接刷入OpenWrt当软路由，但手里这台红米AX3000要破解SSH权限还没有合适的固件。索性淘了个"/>
+<meta name="twitter:title" content="OpenWrt软路由入门"/>
+<meta name="twitter:description" content="Orange Pi R1 Plus刷入OpenWrt做软路由"/>
 
 
 <script type="application/ld+json">
@@ -91,7 +91,7 @@
     {
       "@type": "ListItem",
       "position":  3 ,
-      "name": "Orange Pi刷入OpenWrt做软路由",
+      "name": "OpenWrt软路由入门",
       "item": "https://blog.panda74.fun/posts/tech/softroute/"
     }
   ]
@@ -101,9 +101,9 @@
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "Orange Pi刷入OpenWrt做软路由",
-  "name": "Orange Pi刷入OpenWrt做软路由",
-  "description": "前言 一直有软路由的需求，开始想过原路由直接刷入OpenWrt当软路由，但手里这台红米AX3000要破解SSH权限还没有合适的固件。索性淘了个",
+  "headline": "OpenWrt软路由入门",
+  "name": "OpenWrt软路由入门",
+  "description": "Orange Pi R1 Plus刷入OpenWrt做软路由",
   "keywords": [
     ""
   ],
@@ -214,8 +214,11 @@
   <header class="post-header">
     <div class="breadcrumbs"><a href="https://blog.panda74.fun/">🏠Home</a>&nbsp;»&nbsp;<a href="https://blog.panda74.fun/posts/">📃 Posts</a>&nbsp;»&nbsp;<a href="https://blog.panda74.fun/posts/tech/">👨🏻‍💻 技术</a></div>
     <h1 class="post-title">
-      Orange Pi刷入OpenWrt做软路由
+      OpenWrt软路由入门
     </h1>
+    <div class="post-description">
+      Orange Pi R1 Plus刷入OpenWrt做软路由
+    </div>
     <div class="post-meta"><span title='2023-05-05 23:09:49 +0800 CST'>May 5, 2023</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;1373 words&nbsp;·&nbsp;Myles
 
 </div>
@@ -334,7 +337,7 @@
 <p><img loading="lazy" src="https://blog.panda74.fun/posts/tech/img/softRoute/miwifi.png" alt="miwifi"  />
 </p>
 <p>设置好后会给你新的后台地址，一定要记住，一定要记住，重要的事情说三遍，原来的后来地址就没用了，这里我们需要将软路由lan口连接路由器wan口，wan口连接光猫，之后进入openwrt后台192.168.2.1在接口wan口设置将协议改为PPPoE,pap/chap用户名密码填上你宽带的用户名密码，点击保存保存并应用就成功了。</p>
-<p><img loading="lazy" src="https://blog.panda74.fun/https://blog.panda74.fun/posts/tech/img/softRoute/openwrt.png" alt="openwrt"  />
+<p><img loading="lazy" src="https://blog.panda74.fun/posts/tech/img/softRoute/openwrt.png" alt="openwrt"  />
 </p>
 <p>采用旁路由方案时可以参考这篇博客，<a href="https://cyrusyip.org/zh-cn/post/2021/08/30/raspberry-pi-4b-openwrt/">树莓派 4B OpenWrt 旁路由教程</a></p>
 <h3 id="写在后面">写在后面<a hidden class="anchor" aria-hidden="true" href="#写在后面">#</a></h3>
