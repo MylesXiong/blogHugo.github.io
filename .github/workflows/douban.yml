@@ -8,14 +8,14 @@ on:
 
 jobs:
   douban:
-    name: Douban mark data sync
+    name: Douban mark sync
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
       uses: actions/checkout@v3
 
     - name: movie
-      uses: lizheming/doumark-action@master
+      uses: lizheming/doumark-action@0.1.0
       with:
         id: 180569418
         type: movie
@@ -23,7 +23,7 @@ jobs:
         dir: ./data/douban
 
     - name: book
-      uses: lizheming/doumark-action@master
+      uses: lizheming/doumark-action@0.1.0
       with:
         id: 180569418
         type: book
