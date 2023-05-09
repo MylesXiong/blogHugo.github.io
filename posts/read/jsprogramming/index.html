@@ -402,6 +402,8 @@
     max-height: 1.8em;
     line-height: 1.8em;
     overflow: hidden;
+    display: flex;
+    align-items: center;
   }
   
   .douban-card--stars-rating span {
@@ -429,70 +431,9 @@
     border-bottom-right-radius: 4px;
     display: inline-block;
   }
-  
-  .douban-card--stars {
-    width: 75px;
-    height: 15px !important;
-    background-image: url(/images/icons/douban-stars.png);
-    background-image: -webkit-image-set(url(/images/icons/douban-stars.png) 1x, url(/images/icons/douban-stars@2x.png) 2x);
-    background-image: -moz-image-set(url(/images/icons/douban-stars.png) 1x, url(/images/icons/douban-stars@2x.png) 2x);
-    background-image: -o-image-set(url(/images/icons/douban-stars.png) 1x, url(/images/icons/douban-stars@2x.png) 2x);
-    background-image: -ms-image-set(url(/images/icons/douban-stars.png) 1x, url(/images/icons/douban-stars@2x.png) 2x);
-    overflow: hidden;
-    margin-left: .6em;
-    vertical-align: text-top;
-  }
-  
-  .douban-card--rating {
-    color: #777;
-    font-weight: bold;
-    margin-left: .6em;
-  }
-  
-  .douban-card--stars-10 {
-    background-position: 0px 0px;
-  }
-  
-  .douban-card--stars-9 {
-    background-position: 0px -15px;
-  }
-  
-  .douban-card--stars-8 {
-    background-position: 0px -30px;
-  }
-  
-  .douban-card--stars-7 {
-    background-position: 0px -45px;
-  }
-  
-  .douban-card--stars-6 {
-    background-position: 0px -60px;
-  }
-  
-  .douban-card--stars-5 {
-    background-position: 0px -75px;
-  }
-  
-  .douban-card--stars-4 {
-    background-position: 0px -90px;
-  }
-  
-  .douban-card--stars-3 {
-    background-position: 0px -105px;
-  }
-  
-  .douban-card--stars-2 {
-    background-position: 0px -120px;
-  }
-  
-  .douban-card--stars-1 {
-    background-position: 0px -135px;
-  }
-  
-  .douban-card--stars-0 {
-    background-position: 0px -150px;
-  }
-  
+  .rating .allstardark{position:relative;color: #f99b01;height: 1.5em;width: 7.5em;background-size: auto 100%;margin:0 1em;background-repeat: repeat;background-image: url(data:image/svg+xml;base64,PHN2ZyBjbGFzcz0iaWNvbiIgdmlld0JveD0iMCAwIDEwMjQgMTAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMzIiIGhlaWdodD0iMzIiPjxwYXRoIGQ9Ik05MDguMSAzNTMuMWwtMjUzLjktMzYuOUw1NDAuNyA4Ni4xYy0zLjEtNi4zLTguMi0xMS40LTE0LjUtMTQuNS0xNS44LTcuOC0zNS0xLjMtNDIuOSAxNC41TDM2OS44IDMxNi4ybC0yNTMuOSAzNi45Yy03IDEtMTMuNCA0LjMtMTguMyA5LjMtMTIuMyAxMi43LTEyLjEgMzIuOS42IDQ1LjNsMTgzLjcgMTc5LjEtNDMuNCAyNTIuOWMtMS4yIDYuOS0uMSAxNC4xIDMuMiAyMC4zIDguMiAxNS42IDI3LjYgMjEuNyA0My4yIDEzLjRMNTEyIDc1NGwyMjcuMSAxMTkuNGM2LjIgMy4zIDEzLjQgNC40IDIwLjMgMy4yIDE3LjQtMyAyOS4xLTE5LjUgMjYuMS0zNi45bC00My40LTI1Mi45IDE4My43LTE3OS4xYzUtNC45IDguMy0xMS4zIDkuMy0xOC4zIDIuNy0xNy41LTkuNS0zMy43LTI3LTM2LjN6TTY2NC44IDU2MS42bDM2LjEgMjEwLjNMNTEyIDY3Mi43IDMyMy4xIDc3MmwzNi4xLTIxMC4zLTE1Mi44LTE0OUw0MTcuNiAzODIgNTEyIDE5MC43IDYwNi40IDM4MmwyMTEuMiAzMC43LTE1Mi44IDE0OC45eiIgZmlsbD0iI2Y5OWIwMSIvPjwvc3ZnPg==);
+  } 
+  .rating .allstarlight{position: absolute;left: 0;color: #f99b01;height:1.5em;overflow: hidden;background-size: auto 100%;background-repeat: repeat;background-image: url(data:image/svg+xml;base64,PHN2ZyBjbGFzcz0iaWNvbiIgdmlld0JveD0iMCAwIDEwMjQgMTAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMzIiIGhlaWdodD0iMzIiPjxwYXRoIGQ9Ik05MDguMSAzNTMuMWwtMjUzLjktMzYuOUw1NDAuNyA4Ni4xYy0zLjEtNi4zLTguMi0xMS40LTE0LjUtMTQuNS0xNS44LTcuOC0zNS0xLjMtNDIuOSAxNC41TDM2OS44IDMxNi4ybC0yNTMuOSAzNi45Yy03IDEtMTMuNCA0LjMtMTguMyA5LjMtMTIuMyAxMi43LTEyLjEgMzIuOS42IDQ1LjNsMTgzLjcgMTc5LjEtNDMuNCAyNTIuOWMtMS4yIDYuOS0uMSAxNC4xIDMuMiAyMC4zIDguMiAxNS42IDI3LjYgMjEuNyA0My4yIDEzLjRMNTEyIDc1NGwyMjcuMSAxMTkuNGM2LjIgMy4zIDEzLjQgNC40IDIwLjMgMy4yIDE3LjQtMyAyOS4xLTE5LjUgMjYuMS0zNi45bC00My40LTI1Mi45IDE4My43LTE3OS4xYzUtNC45IDguMy0xMS4zIDkuMy0xOC4zIDIuNy0xNy41LTkuNS0zMy43LTI3LTM2LjN6IiBmaWxsPSIjZjk5YjAxIi8+PC9zdmc+);}
 </style>
 
 
@@ -516,8 +457,8 @@
                 <div class="douban-card--stars-rating">
                     <span class="douban-card--logo-dou">豆</span>
                     <span class="douban-card--logo-rating">豆瓣评分</span>
-                    <span class="douban-card--stars douban-card--stars-' + 4 + '"></span>
                     
+                    <span class="rating"><span class="allstardark"><span class="allstarlight" style="width:93%"></span></span></span>
                     <span class="douban-card--rating">9.3</span>
                 </div>
                 <div class="douban-card--tags">[美] Nicholas C. Zakas / 2012 / 人民邮电出版社</div>
@@ -525,7 +466,7 @@
 本书适合有一定编程经验的Web 应用开发人员阅读，也可作为高校及社会实用技术培训相关专业课程的教材。</div>
             </div>
             <div class="douban-card--right">
-                <img src="https://img1.doubanio.com/view/subject/l/public/s8958650.jpg" alt="JavaScript高级程序设计（第3版）">
+                <img loading="lazy" decoding="async" referrerpolicy="no-referrer"  src="https://img1.doubanio.com/view/subject/l/public/s8958650.jpg" alt="JavaScript高级程序设计（第3版）">
             </div>
         </div>
     
