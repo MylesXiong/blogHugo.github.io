@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>👨🏻‍💻 技术 on 麦田Rebel&#39;s Blog</title>
-    <link>https://blog.panda74.fun/posts/tech/</link>
-    <description>Recent content in 👨🏻‍💻 技术 on 麦田Rebel&#39;s Blog</description>
+    <title>openwrt on 麦田Rebel&#39;s Blog</title>
+    <link>https://blog.panda74.fun/tags/openwrt/</link>
+    <description>Recent content in openwrt on 麦田Rebel&#39;s Blog</description>
     <image>
       <title>麦田Rebel&#39;s Blog</title>
       <url>https://blog.panda74.fun/img/avatars.png</url>
@@ -11,7 +11,7 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 13 May 2023 13:49:11 +0800</lastBuildDate><atom:link href="https://blog.panda74.fun/posts/tech/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 13 May 2023 13:49:11 +0800</lastBuildDate><atom:link href="https://blog.panda74.fun/tags/openwrt/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>MemosNoServer</title>
       <link>https://blog.panda74.fun/posts/tech/memosnoserver/</link>
@@ -19,15 +19,6 @@
       
       <guid>https://blog.panda74.fun/posts/tech/memosnoserver/</guid>
       <description></description>
-    </item>
-    
-    <item>
-      <title>OpenWrt软路由入门</title>
-      <link>https://blog.panda74.fun/posts/tech/softroute/</link>
-      <pubDate>Sat, 15 Apr 2023 23:09:49 +0800</pubDate>
-      
-      <guid>https://blog.panda74.fun/posts/tech/softroute/</guid>
-      <description>Orange Pi R1 Plus刷入OpenWrt做软路由</description>
     </item>
     
   </channel>
