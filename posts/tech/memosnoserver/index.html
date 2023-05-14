@@ -107,8 +107,8 @@
   "keywords": [
     ""
   ],
-  "articleBody": "前言 前几天网上冲浪发现个宝藏开源项目Memos——A lightweight, self-hosted memo hub. Open Source and Free forever.1\n我理解为一个拥有社交属性的备忘录，提供了与好朋友分享一些奇思妙想的平台。并且颜值超高！\n因为它是通过Docker部署的，就可以把它挂载到软路由上，然后通过ZeroTier构建虚拟局域网，将终端设备添加进来，这样不需要购买服务器一样可以随时随地使用Memos。\n在openWrt docker中部署 1 在ubantu系统中，\u003ckbd\u003eCtrl\u003c/kbd\u003e+\u003ckbd\u003eAlt\u003c/kbd\u003e+\u003ckbd\u003eT\u003c/kbd\u003e打开终端链接软路由 1 ssh root@192.168.2.1 创建memos文件夹并进入\n1 2 mkdir /memos -p cd /memos docker部署\n1 2 3 4 5 6 docker run -d \\ --init \\ --name memos \\ --publish 5230:5230 \\ --volume ~/.memos/:/var/opt/memos \\ ghcr.io/usememos/memos:latest 输入命令查看是否部署成功\n1 docker logs memos 至此memos已经部署成功了。我们可以通过局域网192.168.2.1:5230访问它。初次进入默认语言为英文，可以在Settings»Preferences»Language中选择简体中文。\n值得一提的是Memos集成了ChatGPT的功能只需在设置»系统»OpenAI: API Key中填写自己的Key便可使用。\nZeroTier创建虚拟局域网 仅仅通过局域网访问达不到我们的需求，此时借助于免费强大的内网穿透工具ZeroTier。进入ZeroTier官网，点击Sign Up注册账号，注册成功自动跳转到个人中心，此时点击黄色按钮Create A Network创建虚拟局域网络，然后点击进入配置。如图\n»Settings Basics中 (记住Netwok ID!!!待会会用)Name输入框设置网络名称（可选），Access Control单选框选择Private。 Advanced中IPv4 Auto-Assign 中选择自己喜欢的网段 此时已经完成了基础功能的设置，下面进行终端配置。\nopenWrt配置 如果你刷的固件中自带的有zerotier插件那么就非常简单。只需要进入openwrt后台管理地址，找到zerotier在ZeroTier Network ID中填入刚才创建的虚拟局域网的Network ID。\n如果没有需要进行如下设置\n终端连接openwrt安装zerotier\n1 2 3 ssh root@192.168.2.1 opkg update opkg install zerotier 创建配置文件\n1 2 3 4 5 6 mkdir -p /etc/zerotier uci set zerotier.openwrt_network=zerotier uci add_list zerotier.openwrt_network.join='你的Network ID' uci set zerotier.openwrt_network.enabled='1' uci set zerotier.openwrt_network.config_path='/etc/zerotier' uci commit zerotier 启动\n1 2 /etc/init.d/zerotier enable /etc/init.d/zerotier start 浏览器进入openwrt后台管理地址\n依次点击**»网络»接口»**添加新接口。\n名称自定义，协议选不配置协议，设备选z开头的适配器。点击“创建接口”按钮。 创建成功在上方会出现选项卡，点击“防火墙设置”，在“创建/分配防火墙区域”选择“lan”，点击保存然后一定要保存并应用！！！\n回到后台管理界面依次点击**»网络»防火墙»**通信规则\n名称自定义，协议选UDP，源区域选任意区域，目标区域选设备，目标端口填9993。保存并应用 重启openWrt\n1 reboot 至此就完成openwrt的zerotier配置。\nZeroTier权限授权 进入zerotier个人中心，就可以在刚才创建的网络的Members中看到所有加入进来的终端设备,此时只有软路由一个。\n»Members 点击**Auth?**单选框授权 在Name/Description填写信息以便区分不同终端设备 在Managed IPs中记住软路由的IP地址，这也是外网访问地址。 Windows与Android等终端配置 在zerotier下载地址,找到对应的安装包下载并安装。添加Network,然后设置里填入Network ID。由于都是图形化操作界面，使用很简单就不过多赘述。\n参考 memos官方自我介绍 ↩︎\n",
-  "wordCount" : "1583",
+  "articleBody": "前言 前几天网上冲浪发现个宝藏开源项目Memos——A lightweight, self-hosted memo hub. Open Source and Free forever1.\n我理解为一个拥有社交属性的备忘录，提供了与好朋友分享一些奇思妙想的平台。并且颜值超高！\n因为它是通过Docker部署的，就可以把它挂载到软路由上，然后通过ZeroTier构建虚拟局域网，将终端设备添加进来，这样不需要购买服务器一样可以随时随地使用Memos。\n在openWrt docker中部署 在ubantu系统中，Ctrl+Alt+T打开终端链接软路由\nssh root@192.168.2.1 创建memos文件夹并进入\nmkdir /memos -p cd /memos docker部署2\ndocker run -d \\ --init \\ --name memos \\ --publish 5230:5230 \\ --volume ~/.memos/:/var/opt/memos \\ ghcr.io/usememos/memos:latest 输入命令查看是否部署成功\ndocker logs memos 至此memos已经部署成功了。我们可以通过局域网192.168.2.1:5230访问它。初次进入默认语言为英文，可以在Settings»Preferences»Language中选择简体中文。\n值得一提的是Memos集成了ChatGPT的功能只需在设置»系统»OpenAI: API Key中填写自己的Key便可使用。\nZeroTier创建虚拟局域网 仅仅通过局域网访问达不到我们的需求，此时借助于免费强大的内网穿透工具ZeroTier。进入ZeroTier官网，点击Sign Up注册账号，注册成功自动跳转到个人中心，此时点击黄色按钮Create A Network创建虚拟局域网络，然后点击进入配置。如图\n»Settings Basics中 (记住Netwok ID!!!待会会用)Name输入框设置网络名称（可选），Access Control单选框选择Private。 Advanced中IPv4 Auto-Assign 中选择自己喜欢的网段 此时已经完成了基础功能的设置，下面进行终端配置。\nopenWrt配置 如果你刷的固件中自带的有zerotier插件那么就非常简单。只需要进入openwrt后台管理地址，找到zerotier在ZeroTier Network ID中填入刚才创建的虚拟局域网的Network ID。\n如果没有需要进行如下设置3\n终端连接openwrt安装zerotier\nssh root@192.168.2.1 opkg update opkg install zerotier 创建配置文件\nmkdir -p /etc/zerotier uci set zerotier.openwrt_network=zerotier uci add_list zerotier.openwrt_network.join='你的Network ID' uci set zerotier.openwrt_network.enabled='1' uci set zerotier.openwrt_network.config_path='/etc/zerotier' uci commit zerotier 启动\n/etc/init.d/zerotier enable /etc/init.d/zerotier start 浏览器进入openwrt后台管理地址\n依次点击»网络»接口»“添加新接口”。\n名称自定义，协议选不配置协议，设备选z开头的适配器。点击“创建接口”按钮。 创建成功在上方会出现选项卡，点击“防火墙设置”，在“创建/分配防火墙区域”选择“lan”，点击保存然后一定要保存并应用！！！\n回到后台管理界面依次点击»网络»防火墙»“通信规则”\n名称自定义，协议选UDP，源区域选任意区域，目标区域选设备，目标端口填9993。保存并应用 重启openWrt\nreboot 至此就完成openwrt的zerotier配置。\nZeroTier权限授权 进入zerotier个人中心，就可以在刚才创建的网络的Members中看到所有加入进来的终端设备,此时只有软路由一个。\n»Members 点击Auth单选框授权 在Name/Description填写信息以便区分不同终端设备 在Managed IPs中记住软路由的IP地址，这也是外网访问地址。 终端配置 在zerotier下载地址,找到对应的安装包下载并安装(Windows、Android、IOS等)。添加Network,然后设置里填入Network ID。由于都是图形化操作界面，使用很简单就不过多赘述。\n参考 Memos官网说明 ↩︎\nMemos官方文档Docker部署 ↩︎\nOpenWrt安装ZeroTier ↩︎\n",
+  "wordCount" : "1590",
   "inLanguage": "en",
   "datePublished": "2023-05-13T13:49:11+08:00",
   "dateModified": "2023-05-13T13:49:11+08:00",
@@ -219,7 +219,7 @@
     <div class="post-description">
       将Memos部署在OpenWrt Docker中利用zeroTier实现内网穿透，外网访问
     </div>
-    <div class="post-meta"><span title='2023-05-13 13:49:11 +0800 CST'>May 13, 2023</span>&nbsp;·&nbsp;4 min&nbsp;·&nbsp;1583 words&nbsp;·&nbsp;Myles
+    <div class="post-meta"><span title='2023-05-13 13:49:11 +0800 CST'>May 13, 2023</span>&nbsp;·&nbsp;4 min&nbsp;·&nbsp;1590 words&nbsp;·&nbsp;Myles
 
 </div>
   </header> <aside id="toc-container" class="toc-container wide">
@@ -249,7 +249,7 @@
                         <a href="#members" aria-label="&amp;raquo;Members">&raquo;Members</a></li></ul>
                     </li>
                     <li>
-                        <a href="#windows%e4%b8%8eandroid%e7%ad%89%e7%bb%88%e7%ab%af%e9%85%8d%e7%bd%ae" aria-label="Windows与Android等终端配置">Windows与Android等终端配置</a></li>
+                        <a href="#%e7%bb%88%e7%ab%af%e9%85%8d%e7%bd%ae" aria-label="终端配置">终端配置</a></li>
                     <li>
                         <a href="#%e5%8f%82%e8%80%83" aria-label="参考">参考</a>
                     </li>
@@ -319,66 +319,25 @@
 </script>
 
   <div class="post-content"><h3 id="前言">前言<a hidden class="anchor" aria-hidden="true" href="#前言">#</a></h3>
-<p>前几天网上冲浪发现个宝藏开源项目Memos——A lightweight, self-hosted memo hub. Open Source and Free forever.<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></p>
+<p>前几天网上冲浪发现个宝藏开源项目Memos——A lightweight, self-hosted memo hub. Open Source and Free forever<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>.</p>
 <p>我理解为一个拥有社交属性的备忘录，提供了与好朋友分享一些奇思妙想的平台。并且颜值超高！</p>
 <p>因为它是通过Docker部署的，就可以把它挂载到软路由上，然后通过ZeroTier构建虚拟局域网，将终端设备添加进来，这样不需要购买服务器一样可以随时随地使用Memos。</p>
 <h3 id="在openwrt-docker中部署">在openWrt docker中部署<a hidden class="anchor" aria-hidden="true" href="#在openwrt-docker中部署">#</a></h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt" id="hl-0-1"><a class="lnlinks" href="#hl-0-1">1</a>
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">在ubantu系统中，<span class="p">&lt;</span><span class="nt">kbd</span><span class="p">&gt;</span>Ctrl<span class="p">&lt;/</span><span class="nt">kbd</span><span class="p">&gt;</span>+<span class="p">&lt;</span><span class="nt">kbd</span><span class="p">&gt;</span>Alt<span class="p">&lt;/</span><span class="nt">kbd</span><span class="p">&gt;</span>+<span class="p">&lt;</span><span class="nt">kbd</span><span class="p">&gt;</span>T<span class="p">&lt;/</span><span class="nt">kbd</span><span class="p">&gt;</span>打开终端链接软路由
-</span></span></code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt" id="hl-1-1"><a class="lnlinks" href="#hl-1-1">1</a>
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ssh root@192.168.2.1
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>创建memos文件夹并进入</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt" id="hl-2-1"><a class="lnlinks" href="#hl-2-1">1</a>
-</span><span class="lnt" id="hl-2-2"><a class="lnlinks" href="#hl-2-2">2</a>
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">mkdir /memos -p
+<p>在ubantu系统中，<kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>T</kbd>打开终端链接软路由</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ssh root@192.168.2.1
+</span></span></code></pre></div><p>创建memos文件夹并进入</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">mkdir /memos -p
 </span></span><span class="line"><span class="cl"><span class="nb">cd</span> /memos
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>docker部署</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt" id="hl-3-1"><a class="lnlinks" href="#hl-3-1">1</a>
-</span><span class="lnt" id="hl-3-2"><a class="lnlinks" href="#hl-3-2">2</a>
-</span><span class="lnt" id="hl-3-3"><a class="lnlinks" href="#hl-3-3">3</a>
-</span><span class="lnt" id="hl-3-4"><a class="lnlinks" href="#hl-3-4">4</a>
-</span><span class="lnt" id="hl-3-5"><a class="lnlinks" href="#hl-3-5">5</a>
-</span><span class="lnt" id="hl-3-6"><a class="lnlinks" href="#hl-3-6">6</a>
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker run -d <span class="se">\
+</span></span></code></pre></div><p>docker部署<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker run -d <span class="se">\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>  --init <span class="se">\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>  --name memos <span class="se">\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>  --publish 5230:5230 <span class="se">\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>  --volume ~/.memos/:/var/opt/memos <span class="se">\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>  ghcr.io/usememos/memos:latest
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>输入命令查看是否部署成功</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt" id="hl-4-1"><a class="lnlinks" href="#hl-4-1">1</a>
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker logs memos
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>至此memos已经部署成功了。我们可以通过局域网192.168.2.1:5230访问它。初次进入默认语言为英文，可以在Settings&raquo;Preferences&raquo;Language中选择简体中文。</p>
+</span></span></code></pre></div><p>输入命令查看是否部署成功</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker logs memos
+</span></span></code></pre></div><p>至此memos已经部署成功了。我们可以通过局域网192.168.2.1:5230访问它。初次进入默认语言为英文，可以在Settings&raquo;Preferences&raquo;Language中选择简体中文。</p>
 <p>值得一提的是Memos集成了ChatGPT的功能只需在设置&raquo;系统&raquo;OpenAI: API Key中填写自己的Key便可使用。</p>
 <p><img loading="lazy" src="https://blog.panda74.fun/posts/tech/img/memos/openKey.png" alt="chatgpt"  />
 </p>
@@ -394,64 +353,35 @@
 <p>此时已经完成了基础功能的设置，下面进行终端配置。</p>
 <h4 id="openwrt配置">openWrt配置<a hidden class="anchor" aria-hidden="true" href="#openwrt配置">#</a></h4>
 <p>如果你刷的固件中自带的有zerotier插件那么就非常简单。只需要进入openwrt后台管理地址，找到zerotier在ZeroTier Network ID中填入刚才创建的虚拟局域网的Network ID。</p>
-<p>如果没有需要进行如下设置</p>
+<p>如果没有需要进行如下设置<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup></p>
 <ol>
 <li>
 <p>终端连接openwrt安装zerotier</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt" id="hl-5-1"><a class="lnlinks" href="#hl-5-1">1</a>
-</span><span class="lnt" id="hl-5-2"><a class="lnlinks" href="#hl-5-2">2</a>
-</span><span class="lnt" id="hl-5-3"><a class="lnlinks" href="#hl-5-3">3</a>
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ssh root@192.168.2.1
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ssh root@192.168.2.1
 </span></span><span class="line"><span class="cl">opkg update
 </span></span><span class="line"><span class="cl">opkg install zerotier
-</span></span></code></pre></td></tr></table>
-</div>
-</div></li>
+</span></span></code></pre></div></li>
 <li>
 <p>创建配置文件</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt" id="hl-6-1"><a class="lnlinks" href="#hl-6-1">1</a>
-</span><span class="lnt" id="hl-6-2"><a class="lnlinks" href="#hl-6-2">2</a>
-</span><span class="lnt" id="hl-6-3"><a class="lnlinks" href="#hl-6-3">3</a>
-</span><span class="lnt" id="hl-6-4"><a class="lnlinks" href="#hl-6-4">4</a>
-</span><span class="lnt" id="hl-6-5"><a class="lnlinks" href="#hl-6-5">5</a>
-</span><span class="lnt" id="hl-6-6"><a class="lnlinks" href="#hl-6-6">6</a>
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">mkdir -p /etc/zerotier
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">mkdir -p /etc/zerotier
 </span></span><span class="line"><span class="cl">uci <span class="nb">set</span> zerotier.openwrt_network<span class="o">=</span>zerotier
 </span></span><span class="line"><span class="cl">uci add_list zerotier.openwrt_network.join<span class="o">=</span><span class="s1">&#39;你的Network ID&#39;</span>
 </span></span><span class="line"><span class="cl">uci <span class="nb">set</span> zerotier.openwrt_network.enabled<span class="o">=</span><span class="s1">&#39;1&#39;</span>
 </span></span><span class="line"><span class="cl">uci <span class="nb">set</span> zerotier.openwrt_network.config_path<span class="o">=</span><span class="s1">&#39;/etc/zerotier&#39;</span>
 </span></span><span class="line"><span class="cl">uci commit zerotier
-</span></span></code></pre></td></tr></table>
-</div>
-</div></li>
+</span></span></code></pre></div></li>
 <li>
 <p>启动</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt" id="hl-7-1"><a class="lnlinks" href="#hl-7-1">1</a>
-</span><span class="lnt" id="hl-7-2"><a class="lnlinks" href="#hl-7-2">2</a>
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">/etc/init.d/zerotier <span class="nb">enable</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">/etc/init.d/zerotier <span class="nb">enable</span>
 </span></span><span class="line"><span class="cl">/etc/init.d/zerotier start
-</span></span></code></pre></td></tr></table>
-</div>
-</div></li>
+</span></span></code></pre></div></li>
 <li>
 <p>浏览器进入openwrt后台管理地址</p>
 </li>
 </ol>
 <ul>
 <li>
-<p>依次点击**&raquo;<strong>网络</strong>&raquo;<strong>接口</strong>&raquo;**添加新接口。</p>
+<p>依次点击&raquo;<strong>网络</strong>&raquo;<strong>接口</strong>&raquo;&ldquo;添加新接口&rdquo;。</p>
 </li>
 <li>
 <p>名称自定义，协议选不配置协议，设备选z开头的适配器。点击“创建接口”按钮。<img loading="lazy" src="https://blog.panda74.fun/posts/tech/img/memos/createLan.png" alt="createLan"  />
@@ -461,7 +391,7 @@
 <p>创建成功在上方会出现选项卡，点击“防火墙设置”，在“创建/分配防火墙区域”选择“<strong>lan</strong>”，点击保存然后一定要<strong>保存并应用！！！</strong></p>
 </li>
 <li>
-<p>回到后台管理界面依次点击**&raquo;<strong>网络</strong>&raquo;<strong>防火墙</strong>&raquo;**通信规则</p>
+<p>回到后台管理界面依次点击&raquo;<strong>网络</strong>&raquo;<strong>防火墙</strong>&raquo;&ldquo;通信规则&rdquo;</p>
 </li>
 <li>
 <p>名称自定义，协议选UDP，源区域选任意区域，目标区域选设备，目标端口填9993。<strong>保存并应用</strong><img loading="lazy" src="https://blog.panda74.fun/posts/tech/img/memos/firewallRule.png" alt="firewallRule"  />
@@ -469,34 +399,32 @@
 </li>
 <li>
 <p>重启openWrt</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt" id="hl-8-1"><a class="lnlinks" href="#hl-8-1">1</a>
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">reboot
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>至此就完成openwrt的zerotier配置。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">reboot
+</span></span></code></pre></div><p>至此就完成openwrt的zerotier配置。</p>
 </li>
 </ul>
 <h3 id="zerotier权限授权">ZeroTier权限授权<a hidden class="anchor" aria-hidden="true" href="#zerotier权限授权">#</a></h3>
 <p>进入<a href="https://my.zerotier.com/">zerotier个人中心</a>，就可以在刚才创建的网络的Members中看到所有加入进来的终端设备,此时只有软路由一个。</p>
 <h4 id="members">&raquo;Members<a hidden class="anchor" aria-hidden="true" href="#members">#</a></h4>
 <ul>
-<li>点击**Auth?**单选框授权</li>
+<li>点击<strong>Auth</strong>单选框授权</li>
 <li>在<strong>Name/Description</strong>填写信息以便区分不同终端设备</li>
 <li>在<strong>Managed IPs</strong>中记住软路由的IP地址，这也是外网访问地址。</li>
 </ul>
-<h3 id="windows与android等终端配置">Windows与Android等终端配置<a hidden class="anchor" aria-hidden="true" href="#windows与android等终端配置">#</a></h3>
-<p>在<a href="https://www.zerotier.com/download/">zerotier下载地址</a>,找到对应的安装包下载并安装。添加Network,然后设置里填入Network ID。由于都是图形化操作界面，使用很简单就不过多赘述。</p>
-<hr>
+<h3 id="终端配置">终端配置<a hidden class="anchor" aria-hidden="true" href="#终端配置">#</a></h3>
+<p>在<a href="https://www.zerotier.com/download/">zerotier下载地址</a>,找到对应的安装包下载并安装(Windows、Android、IOS等)。添加Network,然后设置里填入Network ID。由于都是图形化操作界面，使用很简单就不过多赘述。</p>
 <h3 id="参考">参考<a hidden class="anchor" aria-hidden="true" href="#参考">#</a></h3>
 <div class="footnotes" role="doc-endnotes">
 <hr>
 <ol>
 <li id="fn:1">
-<p> <a href="https://usememos.com/">memos</a>官方自我介绍&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+<p> <a href="https://usememos.com/">Memos官网</a>说明&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p><a href="https://usememos.com/docs/install/docker">Memos官方文档</a>Docker部署&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3">
+<p><a href="https://www.mengmei.moe/share/3362.html">OpenWrt安装ZeroTier</a>&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 </ol>
 </div>
@@ -510,10 +438,10 @@
       <li><a href="https://blog.panda74.fun/tags/openwrt/">OpenWrt</a></li>
     </ul>
 <nav class="paginav">
-  <a class="next" href="https://blog.panda74.fun/posts/read/jsprogramming/">
+  <a class="next" href="https://blog.panda74.fun/posts/tech/softroute/">
     <span class="title">Next »</span>
     <br>
-    <span>JavaScript高级程序设计</span>
+    <span>OpenWrt软路由入门</span>
   </a>
 </nav>
 

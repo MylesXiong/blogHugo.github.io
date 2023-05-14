@@ -22,30 +22,21 @@
     </item>
     
     <item>
-      <title>JavaScript高级程序设计</title>
-      <link>https://blog.panda74.fun/posts/read/jsprogramming/</link>
-      <pubDate>Tue, 09 May 2023 01:08:05 +0800</pubDate>
-      
-      <guid>https://blog.panda74.fun/posts/read/jsprogramming/</guid>
-      <description>前言 相对于看视频学习我更喜欢看书，我觉得书里的文字凝聚着作者丰富的开发经验与以及对该技术的深入思考，每个文字都值得细读。而看视频因为作者要考</description>
-    </item>
-    
-    <item>
-      <title>五一杂谈</title>
-      <link>https://blog.panda74.fun/posts/life/51gossip/</link>
-      <pubDate>Tue, 02 May 2023 23:55:46 +0800</pubDate>
-      
-      <guid>https://blog.panda74.fun/posts/life/51gossip/</guid>
-      <description>假期回家后的一些思绪.</description>
-    </item>
-    
-    <item>
       <title>OpenWrt软路由入门</title>
       <link>https://blog.panda74.fun/posts/tech/softroute/</link>
       <pubDate>Sat, 15 Apr 2023 23:09:49 +0800</pubDate>
       
       <guid>https://blog.panda74.fun/posts/tech/softroute/</guid>
       <description>Orange Pi R1 Plus刷入OpenWrt做软路由</description>
+    </item>
+    
+    <item>
+      <title>JavaScript高级程序设计</title>
+      <link>https://blog.panda74.fun/posts/read/jsprogramming/</link>
+      <pubDate>Thu, 23 Feb 2023 01:08:05 +0800</pubDate>
+      
+      <guid>https://blog.panda74.fun/posts/read/jsprogramming/</guid>
+      <description>前言 相对于看视频学习我更喜欢看书，我觉得书里的文字凝聚着作者丰富的开发经验与以及对该技术的深入思考，每个文字都值得细读。而看视频因为作者要考</description>
     </item>
     
     
