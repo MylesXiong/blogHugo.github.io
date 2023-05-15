@@ -308,9 +308,9 @@
     }
 </script>
 
-  <div class="post-content"><h3 id="前言">前言<a hidden class="anchor" aria-hidden="true" href="#前言">#</a></h3>
+  <div class="post-content"><h2 id="前言">前言<a hidden class="anchor" aria-hidden="true" href="#前言">#</a></h2>
 <p>一直有软路由的需求，开始想过原路由直接刷入OpenWrt当软路由，但手里这台红米AX3000要破解SSH权限还没有合适的固件。索性淘了个开发板当软路由。</p>
-<h3 id="硬件准备">硬件准备<a hidden class="anchor" aria-hidden="true" href="#硬件准备">#</a></h3>
+<h2 id="硬件准备">硬件准备<a hidden class="anchor" aria-hidden="true" href="#硬件准备">#</a></h2>
 <ul>
 <li>Orange Pi R1 Plus LTS</li>
 <li>5v/2a或者3a电源适配器</li>
@@ -320,19 +320,19 @@
 </ul>
 <p><img loading="lazy" src="https://blog.panda74.fun/posts/tech/img/softRoute/hardware.jpg" alt="hardware"  />
 </p>
-<h3 id="烧录openwrt">烧录OpenWrt<a hidden class="anchor" aria-hidden="true" href="#烧录openwrt">#</a></h3>
+<h2 id="烧录openwrt">烧录OpenWrt<a hidden class="anchor" aria-hidden="true" href="#烧录openwrt">#</a></h2>
 <p>因为我用作软路由的设备是香橙派，所以这里打开<a href="http://www.orangepi.cn/html/hardWare/computerAndMicrocontrollers/service-and-support/Orange-Pi-R1-Plus-LTS-Router.html">香橙派官网</a>下载openwrt镜像。注意这里下载好的镜像文件是tar.gz结尾的，我们需要最终解压成**.img**的后缀名。镜像文件准备好了，我们开始做启动盘。此时要把镜像文件烧录到TF卡，可供选择的软件有很多（<a href="https://www.balena.io/etcher">balena</a>、<a href="https://rufus.ie/zh/">Rufus</a>），因为我电脑是Ubantu系统自带的有烧录软件就不下载了。然后将TF卡放入读卡器并插入电脑USB接口，完成烧录。</p>
 <p><img loading="lazy" src="https://blog.panda74.fun/posts/tech/img/softRoute/burning.png" alt="burning"  />
 </p>
 <p>最后取出TF卡，插入orange pi，接上电源，sys指示灯开始闪烁然后常亮就代表系统正常启动。</p>
-<h3 id="软路由接线">软路由接线<a hidden class="anchor" aria-hidden="true" href="#软路由接线">#</a></h3>
+<h2 id="软路由接线">软路由接线<a hidden class="anchor" aria-hidden="true" href="#软路由接线">#</a></h2>
 <p>接线是个重头戏，这里需要好好讲一讲。开发板用作软路由时担任不同的角色，就是我们常说的主路由，旁路由，接线方式不尽相同。这里为了方便讲解我用ProcessOn做了张图。</p>
 <p><img loading="lazy" src="https://blog.panda74.fun/posts/tech/img/softRoute/wiring.png" alt="wiring"  />
 </p>
 <p>大家可以看到在不加软路由前，也就是我们日常上网，这些机器是怎么布局的。我们在网上冲浪就相当于是数据包之间的传输，那么我们是怎么获取到数据的呢，首先由运营商提供的光纤入户，然后插入光猫，光猫把光信号转换为电信号，之后接入网线插入路由，路由器把电信号转换为电磁波，这样我们就能接收到数据了。而我们在现有网络布局中加入开发板充当主路由时，这时由开发板进行PPPoE拨号上网，接管原有路由器一些功能，此时原有路由器就变成了无线AP，只具备WIFI中继功能。而加入的开发板充当旁路由时，当我们从手机等终端设备发出一个数据包时，数据包总是由我们的终端设备经由旁路由作为终端设备对外数据交互的第一层网关至目的地址。他并不会影响现有的网络布局，而只是充当一个旁路网关。</p>
 <p>如果你选择做主路由，那么还需要考虑一点，<em>PPPoE拨号设备</em>，为什么这么写呢，因为你家里的WIFI进行拨号上网的可能不是路由器，而是光猫，一般宽带师傅为了省事都会让光猫拨号上网。光猫是拨号还是桥接插线也会不同。如果是光猫拨号那么软路由接线就非常简单了，软路由wan口连接光猫，lan口连接路由器wan口就可以上网了。如果原来网络是路由器拨号，我们需要将软路由lan口连接路由器wan口，wan口连接光猫。</p>
 <p>如果你想采用旁路由方案，那么就和电脑有线上网接线一样，路由器lan口接上软路由lan口。</p>
-<h3 id="openwrt后台配置">OpenWrt后台配置<a hidden class="anchor" aria-hidden="true" href="#openwrt后台配置">#</a></h3>
+<h2 id="openwrt后台配置">OpenWrt后台配置<a hidden class="anchor" aria-hidden="true" href="#openwrt后台配置">#</a></h2>
 <p>这里以我采用的方案光猫桥接,软路由拨号，路由器中继为例。打开路由器后台，我的是小米的192.168.31.1，找到上网设置，点击工作模式切换选择有线中继模式。</p>
 <p><img loading="lazy" src="https://blog.panda74.fun/posts/tech/img/softRoute/miwifi.png" alt="miwifi"  />
 </p>
@@ -340,7 +340,7 @@
 <p><img loading="lazy" src="https://blog.panda74.fun/posts/tech/img/softRoute/openwrt.png" alt="openwrt"  />
 </p>
 <p>采用旁路由方案时可以参考这篇博客，<a href="https://cyrusyip.org/zh-cn/post/2021/08/30/raspberry-pi-4b-openwrt/">树莓派 4B OpenWrt 旁路由教程</a></p>
-<h3 id="写在后面">写在后面<a hidden class="anchor" aria-hidden="true" href="#写在后面">#</a></h3>
+<h2 id="写在后面">写在后面<a hidden class="anchor" aria-hidden="true" href="#写在后面">#</a></h2>
 <p>至此，我们已经迈进了openwrt的新世界了，当然这个过程会踩很多的坑，这也仅仅是个开始。</p>
 
 
